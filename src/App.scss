@@ -9,8 +9,20 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $main-color;
+}
+
 html {
-    font-size: 80%;
+    font-size: 90%;
 
     @include tablet {
         font-size: 70%;
