@@ -1,14 +1,15 @@
 import './App.scss'
+import Header from './components/header/Header'
+import { Footer } from './components/footer/Footer'
+import { Routers } from './config/Routers'
 
 function App() {
 
   return (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <h2>dscsdcs</h2>
-        </a>
-      </div>
+      <Header/>
+      <Routers/>
+      <Footer/>
     </>
   )
 }
