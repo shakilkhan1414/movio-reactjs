@@ -24,7 +24,6 @@ const HeroSlide = () => {
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, {params});
                 setMovieItems(response.results.slice(0, 4));
-                console.log(response);
             } catch {
                 console.log('error');
             }
@@ -41,6 +40,7 @@ const HeroSlide = () => {
                 slidesPerView={1}
                 autoplay={{delay: 4000}}
                 speed={600}
+                loop={true}
             >
                 {
                     movieItems.map((item, i) => (

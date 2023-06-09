@@ -25,7 +25,7 @@ const MovieCard = props => {
                 </Button>
             </div>
             <h3 className='title'>{item.title || item.name}</h3>
-            <h4 className='release_year'>{new Date(item.release_date).getFullYear()}</h4>
+            <h4 className='release_year'>{new Date(item.release_date).getFullYear() || new Date(item.first_air_date).getFullYear()}</h4>
         </Link>
     );
 }
