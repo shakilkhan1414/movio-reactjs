@@ -2,12 +2,12 @@ import React from 'react';
 
 import './movie-card.scss';
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import Button from '../button/Button';
+import Button from '../button/Button'
 
-import { category } from '../../api/tmdbApi';
-import apiConfig from '../../api/apiConfig';
+import { category } from '../../api/tmdbApi'
+import apiConfig from '../../api/apiConfig'
 
 const MovieCard = props => {
 
@@ -24,7 +24,8 @@ const MovieCard = props => {
                     <i className="bx bx-play"></i>
                 </Button>
             </div>
-            <h3>{item.title || item.name}</h3>
+            <h3 className='title'>{item.title || item.name}</h3>
+            <h4 className='release_year'>{new Date(item.release_date).getFullYear()}</h4>
         </Link>
     );
 }
