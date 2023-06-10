@@ -1,5 +1,5 @@
 {
-  "name": "moviex",
+  "name": "movio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -29,3 +29,4 @@
     "vite": "^4.3.9"
   }
 }
+

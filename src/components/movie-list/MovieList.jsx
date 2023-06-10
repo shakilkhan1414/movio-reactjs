@@ -22,11 +22,9 @@ const MovieList = props => {
                 switch(props.category) {
                     case category.movie:
                         response = await tmdbApi.getMoviesList(props.type, {params});
-                        console.log(response)
                         break;
                     default:
                         response = await tmdbApi.getTvList(props.type, {params});
-                        console.log(response)
                 }
             } else {
                 response = await tmdbApi.similar(props.category, props.id);

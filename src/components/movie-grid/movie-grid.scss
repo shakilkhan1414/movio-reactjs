@@ -30,6 +30,7 @@
         right: 5px;
         top: 50%;
         transform: translateY(-50%);
+        text-transform: capitalize;
         
         @include mobile {
             right: 5px;
