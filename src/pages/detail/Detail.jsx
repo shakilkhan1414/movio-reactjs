@@ -9,6 +9,7 @@ import CastList from './CastList';
 import VideoList from './VideoList';
 
 import MovieList from '../../components/movie-list/MovieList';
+import { ClipLoader } from 'react-spinners';
 
 const Detail = () => {
 
@@ -27,6 +28,7 @@ const Detail = () => {
 
     return (
         <>
+        {!item && <div className="loading-spinner loading-space"><ClipLoader color='#ff0000' /></div>}
             {
                 item && (
                     <>

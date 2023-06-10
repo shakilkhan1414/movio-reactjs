@@ -3,7 +3,7 @@ import HeroSlide from '../components/hero-slide/HeroSlide'
 import MovieList from '../components/movie-list/MovieList'
 import { Link } from 'react-router-dom'
 import { OutlineButton } from '../components/button/Button'
-import { category, movieType, tvType } from '../api/tmdbApi';
+import { category, movieType, tvType } from '../api/tmdbApi'
 
 export const Home = () => {
   return (

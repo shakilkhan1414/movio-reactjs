@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router';
-
 import './movie-grid.scss';
-
 import MovieCard from '../movie-card/MovieCard';
 import Button, { OutlineButton } from '../button/Button';
 import Input from '../input/Input'
+import { ClipLoader } from 'react-spinners'
 
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
 
@@ -71,11 +70,16 @@ const MovieGrid = props => {
             <div className="section mb-3">
                 <MovieSearch category={props.category} keyword={keyword}/>
             </div>
-            <div className="movie-grid">
-                {
-                    items.map((item, i) => <MovieCard category={props.category} item={item} key={i}/>)
-                }
-            </div>
+            {items.length === 0 && <div className="loading-spinner"><ClipLoader color='#ff0000' /></div>}
+            {items.length > 0 && 
+                <div className="movie-grid">
+                    {
+                        items.map((item, i) => <MovieCard category={props.category} item={item} key={i}/>)
+                    }
+                </div>
+            
+            }
+            
             {
                 page < totalPage ? (
                     <div className="movie-grid__loadmore">

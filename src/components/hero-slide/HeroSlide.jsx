@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 
-import SwiperCore, { Autoplay } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import Button, { OutlineButton } from '../button/Button';
-import Modal, { ModalContent } from '../modal/Modal';
+import Button, { OutlineButton } from '../button/Button'
+import Modal, { ModalContent } from '../modal/Modal'
 
-import tmdbApi, { category, movieType } from '../../api/tmdbApi';
-import apiConfig from '../../api/apiConfig';
+import tmdbApi, { category, movieType } from '../../api/tmdbApi'
+import apiConfig from '../../api/apiConfig'
 
-import './hero-slide.scss';
-import { useNavigate } from 'react-router-dom';
+import './hero-slide.scss'
+import { useNavigate } from 'react-router-dom'
+import { ClipLoader } from 'react-spinners'
 
 const HeroSlide = () => {
 
@@ -24,7 +25,6 @@ const HeroSlide = () => {
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, {params});
                 setMovieItems(response.results.slice(0, 5));
-                console.log(response.results);
             } catch {
                 console.log('error');
             }
@@ -33,7 +33,10 @@ const HeroSlide = () => {
     }, []);
 
     return (
-        <div className="hero-slide">
+        <>
+        {movieItems.length === 0 && <div className="loading-spinner loading-space"><ClipLoader color='#ff0000' /></div>}
+        {movieItems.length > 0 && 
+            <div className="hero-slide">
             <Swiper
                 modules={[Autoplay]}
                 grabCursor={true}
@@ -56,6 +59,11 @@ const HeroSlide = () => {
                 movieItems.map((item, i) => <TrailerModal key={i} item={item}/>)
             }
         </div>
+        
+        }
+ 
+
+        </>
     );
 }
 
