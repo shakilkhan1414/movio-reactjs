@@ -6,6 +6,7 @@ import apiConfig from '../../api/apiConfig';
 
 import './detail.scss';
 import CastList from './CastList';
+import ProductionList from './ProductionList';
 import VideoList from './VideoList';
 
 import MovieList from '../../components/movie-list/MovieList';
@@ -21,6 +22,7 @@ const Detail = () => {
         const getDetail = async () => {
             const response = await tmdbApi.detail(category, id, {params:{}});
             setItem(response);
+            console.log(response)
             window.scrollTo(0,0);
         }
         getDetail();
@@ -41,6 +43,7 @@ const Detail = () => {
                                 <h1 className="title">
                                     {item.title || item.name}
                                 </h1>
+                                <h2 className="date">{new Date(item.release_date).getFullYear() || new Date(item.first_air_date).getFullYear()}</h2>
                                 <div className="genres">
                                     {
                                         item.genres && item.genres.slice(0, 5).map((genre, i) => (
@@ -49,11 +52,33 @@ const Detail = () => {
                                     }
                                 </div>
                                 <p className="overview">{item.overview}</p>
+                                {category=='movie' && 
+                                <>
+                                    <p className='movie-details'><span>Runtime:</span> {item.runtime} minutes</p>
+                                    <p className='movie-details'><span>Budget:</span> {item.budget.toLocaleString("en-US")} USD</p>
+                                    <p className='movie-details'><span>Revenue:</span> {item.revenue.toLocaleString("en-US")} USD</p>
+                                </>
+                                }
+                                {category=='tv' && 
+                                <>
+                                    <p className='movie-details'><span>Total Season:</span> {item.number_of_seasons}</p>
+                                    <p className='movie-details'><span>Total Episode:</span> {item.number_of_episodes}</p>
+                                    <p className='movie-details'><span>Last Air Date:</span> {item.last_air_date}</p>
+                                </>
+                                }
+                                
                                 <div className="cast">
                                     <div className="section__header">
                                         <h2>Casts</h2>
                                     </div>
                                     <CastList id={item.id}/>
+                                </div>
+
+                                <div className="cast">
+                                    <div className="section__header">
+                                        <h2>Production Companies</h2>
+                                    </div>
+                                    <ProductionList companies={item.production_companies}/>
                                 </div>
                             </div>
                         </div>

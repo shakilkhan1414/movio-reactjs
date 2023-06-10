@@ -70,6 +70,27 @@
         .title {
             font-size: 4rem;
             line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .date{
+            color: $main-color;
+        }
+        .overview{
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .movie-details{
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+
+            span{
+                color: $main-color;
+                font-weight: 500;
+            }
+        }
+        .cast{
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
         .genres {
@@ -94,6 +115,10 @@
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 10px;
 
+    .highlight-text{
+        color: $main-color;
+    }
+
     &__item {
         &__img {
             padding-top: 160px;
@@ -103,7 +128,33 @@
         }
 
         &__name {
-            font-size: 0.8rem;
+            font-size: 1rem;
+            line-height: 1.2em;
+            margin-top: 5px;
+        }
+    }
+}
+
+.companies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+
+    &__item {
+        &__img {
+            padding-top: 50px;
+            background-size: 90%;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        &__name {
+            font-size: 1rem;
+            line-height: 1.2em;
+            margin-top: 5px;
         }
     }
 }
@@ -114,4 +165,7 @@
     &__title {
         margin-bottom: 1.5rem;
     }
+}
+.section__header{
+    margin-bottom: 10px;
 }

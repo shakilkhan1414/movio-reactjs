@@ -13,7 +13,7 @@ import './hero-slide.scss'
 import { useNavigate } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners'
 
-const HeroSlide = () => {
+const HeroSlide = (props) => {
 
     SwiperCore.use([Autoplay]);
 
@@ -25,6 +25,7 @@ const HeroSlide = () => {
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, {params});
                 setMovieItems(response.results.slice(0, 5));
+                props.showContent()
             } catch {
                 console.log('error');
             }

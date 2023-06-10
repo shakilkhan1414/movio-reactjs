@@ -27,7 +27,7 @@ const MovieGrid = props => {
                         response = await tmdbApi.getMoviesList(movieType.upcoming, {params});
                         break;
                     default:
-                        response = await tmdbApi.getTvList(tvType.popular, {params});
+                        response = await tmdbApi.getTvList(tvType.top_rated, {params});
                 }
             } else {
                 const params = {
