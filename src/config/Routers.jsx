@@ -11,6 +11,7 @@ export const Routers = () => {
         <Route path='/:category/search/:keyword' element={<Catalog/>} />
         <Route path='/:category/:id' element={<Detail/>} />
         <Route path='/:category' element={<Catalog/>} />
+        <Route path='*' element={<Home/>}></Route>
     </Routes>
   )
 }
