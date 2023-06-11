@@ -74,14 +74,16 @@
         }
         .date{
             color: $main-color;
+            margin-bottom: 20px;
         }
         .overview{
             margin-bottom: 10px;
+            margin-top: 15px;
             font-size: 1.2rem;
         }
         .movie-details{
             font-size: 1.2rem;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
 
             span{
                 color: $main-color;
@@ -94,8 +96,11 @@
         }
 
         .genres {
+            @include mobile {
+                margin-bottom: 25px;
+            }
             & > * ~ * {
-                margin-left: 0.5rem;
+                margin-left: 0.5rem;   
             }
 
             &__item {
@@ -168,4 +173,18 @@
 }
 .section__header{
     margin-bottom: 10px;
+}
+
+.ratings-wrapper{
+    @include flex(center,flex-start);
+    margin-bottom: 10px;
+
+    img{
+        width: 40px;
+        margin-right: 10px;
+
+        @include mobile {
+            width: 40px;
+        }
+    }
 }

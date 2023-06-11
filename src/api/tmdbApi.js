@@ -46,6 +46,10 @@ const tmdbApi = {
         const url = category[cate] + '/' + id + '/similar';
         return axiosClient.get(url, {params: {}});
     },
+    getImdb: (id) => {
+        const url = 'tv/' + id + '/external_ids';
+        return axiosClient.get(url, {params: {}});
+    },
 }
 
 export default tmdbApi;
