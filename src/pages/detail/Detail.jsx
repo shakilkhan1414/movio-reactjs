@@ -38,7 +38,7 @@ const Detail = () => {
             if(item && !itemDetails){
                 axios.get(`https://api.collectapi.com/imdb/imdbSearchById?movieId=${item.imdb_id}`,{
                     headers:{
-                        authorization: "apikey 6940yHXrgCRlrI1ijLjpBV:16gOVh4EjkpbOkeoAmyzOy"
+                        authorization: "apikey 2d1VKwmNFajkXf4C9M5JOw:4lN1amOLSXwjRIQc1nrtVS"
                     }
                 })
                 .then(res=>{
@@ -53,7 +53,7 @@ const Detail = () => {
                         const response = await tmdbApi.getImdb(id);
                         axios.get(`https://api.collectapi.com/imdb/imdbSearchById?movieId=${response.imdb_id}`,{
                         headers:{
-                            authorization: "apikey 6940yHXrgCRlrI1ijLjpBV:16gOVh4EjkpbOkeoAmyzOy"
+                            authorization: "apikey 2d1VKwmNFajkXf4C9M5JOw:4lN1amOLSXwjRIQc1nrtVS"
                         }
                         })
                         .then(res=>{
